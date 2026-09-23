@@ -1,0 +1,38 @@
+[gd_scene format=4 uid="uid://bm4t4gsujbihh"]
+
+[ext_resource type="Texture2D" uid="uid://c01670571vg1n" path="res://Art and Stuff/Lgrass.webp" id="1_n1f5j"]
+[ext_resource type="Texture2D" uid="uid://dhreq80hgh250" path="res://Art and Stuff/Dgrass.jpeg" id="2_n1f5j"]
+[ext_resource type="Script" uid="uid://d2vjvwq063hop" path="res://Main Game/checkerboard.gd" id="3_v3n8n"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eb883"]
+texture = ExtResource("1_n1f5j")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l52a5"]
+texture = ExtResource("2_n1f5j")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_g36yv"]
+tile_size = Vector2i(128, 128)
+terrain_set_0/mode = 0
+sources/1 = SubResource("TileSetAtlasSource_eb883")
+sources/2 = SubResource("TileSetAtlasSource_l52a5")
+
+[node name="Node2D" type="Node2D" unique_id=178753730]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1818240329]
+tile_map_data = PackedByteArray("AAAAAAAAAQAAAAEAAAAAAAEAAgAAAAEAAAABAAAAAgAAAAEAAAABAAEAAQAAAAEAAAACAAAAAQAAAAEAAAADAAAAAgAAAAEAAAAEAAAAAQAAAAEAAAAFAAAAAgAAAAEAAAAGAAAAAQAAAAEAAAAHAAAAAgAAAAEAAAAIAAAAAQAAAAEAAAAIAAEAAgAAAAEAAAAHAAEAAQAAAAEAAAAGAAEAAgAAAAEAAAAFAAEAAQAAAAEAAAAEAAEAAgAAAAEAAAADAAEAAQAAAAEAAAACAAEAAgAAAAEAAAAAAAIAAQAAAAEAAAABAAIAAgAAAAEAAAACAAIAAQAAAAEAAAADAAIAAgAAAAEAAAAEAAIAAQAAAAEAAAAFAAIAAgAAAAEAAAAGAAIAAQAAAAEAAAAHAAIAAgAAAAEAAAAIAAIAAQAAAAEAAAAIAAMAAgAAAAEAAAAHAAMAAQAAAAEAAAAGAAMAAgAAAAEAAAAFAAMAAQAAAAEAAAAEAAMAAgAAAAEAAAADAAMAAQAAAAEAAAACAAMAAgAAAAEAAAABAAMAAQAAAAEAAAAAAAMAAgAAAAEAAAAAAAQAAQAAAAEAAAABAAQAAgAAAAEAAAACAAQAAQAAAAEAAAADAAQAAgAAAAEAAAAEAAQAAQAAAAEAAAAFAAQAAgAAAAEAAAAGAAQAAQAAAAEAAAAHAAQAAgAAAAEAAAAIAAQAAQAAAAEAAAA=")
+tile_set = SubResource("TileSet_g36yv")
+script = ExtResource("3_v3n8n")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=174855986]
+position = Vector2(566, 209)
+zoom = Vector2(0.75, 0.75)

@@ -7,6 +7,7 @@ signal died
 
 var current_health: float
 var is_dead: bool = false
+var current_target: Node=null
 
 
 func _ready():
@@ -18,6 +19,12 @@ func _ready():
 func _physics_process(_delta):
 	if is_dead:
 		return
+	if is_instance_valid(current_target):
+		velocity =Vector2.ZERO
+	else:
+		velocity=Vector2.LEFT*move_speed
+		
+	move_and_slide()
 
 	velocity = Vector2.LEFT * move_speed
 	move_and_slide()
@@ -41,3 +48,16 @@ func die():
 	is_dead = true
 	died.emit()
 	queue_free()
+
+
+func _on_attack_area_body_entered(body: Node2D):
+	if body.is_in_group("plants"):
+		current_target = body
+		$AttackTimer.start()
+		#Add it to plants group
+
+
+func _on_attack_area_body_exited(body: Node2D):
+	if body == current_target:
+		current_target = null
+		$AttackTimer.stop()

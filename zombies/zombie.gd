@@ -4,6 +4,7 @@ signal died
 
 @export var move_speed: float = 30.0
 @export var max_health: float = 100.0
+@export var attack_damage:float=25.0
 
 var current_health: float
 var is_dead: bool = false
@@ -23,8 +24,6 @@ func _physics_process(_delta):
 		velocity =Vector2.ZERO
 	else:
 		velocity=Vector2.LEFT*move_speed
-		
-	move_and_slide()
 
 	velocity = Vector2.LEFT * move_speed
 	move_and_slide()
@@ -61,3 +60,10 @@ func _on_attack_area_body_exited(body: Node2D):
 	if body == current_target:
 		current_target = null
 		$AttackTimer.stop()
+
+func _on_attack_timer_timeout():
+	if not is_instance_valid(current_target):
+		$AttackTimer.stop()
+		return
+	if current_target.has_method("take_damage"):
+		current_target.take_damage(attack_damage)

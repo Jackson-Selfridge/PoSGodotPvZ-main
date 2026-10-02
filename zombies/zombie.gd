@@ -25,7 +25,6 @@ func _physics_process(_delta):
 	else:
 		velocity=Vector2.LEFT*move_speed
 
-	velocity = Vector2.LEFT * move_speed
 	move_and_slide()
 
 

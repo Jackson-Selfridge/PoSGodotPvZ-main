@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://ce53hrktvprcx"]
+
+[node name="GameUI" type="Control" unique_id=267182535]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Background" type="ColorRect" parent="." unique_id=1025618203]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.37254903, 0.6862745, 0.27058825, 1)
+
+[node name="PlantBar" type="ColorRect" parent="." unique_id=1195862741]
+layout_mode = 0
+offset_right = 500.0
+offset_bottom = 80.0
+color = Color(0.4392157, 0.2509804, 0.12156863, 1)
+
+[node name="SunCounter" type="Label" parent="PlantBar" unique_id=1167524367]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 2.0
+offset_right = 75.0
+offset_bottom = 41.0
+theme_override_font_sizes/font_size = 28
+text = "* 75"
+
+[node name="PlantCard1" type="Panel" parent="PlantBar" unique_id=2079065081]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 4.0
+offset_right = 182.0
+offset_bottom = 74.0
+
+[node name="PlantCard2" type="Panel" parent="PlantBar" unique_id=500867663]
+layout_mode = 0
+offset_left = 199.0
+offset_top = 4.0
+offset_right = 269.0
+offset_bottom = 74.0
+
+[node name="PlantCard3" type="Panel" parent="PlantBar" unique_id=782318473]
+layout_mode = 0
+offset_left = 285.0
+offset_top = 4.0
+offset_right = 355.0
+offset_bottom = 74.0
+
+[node name="PlantCard4" type="Panel" parent="PlantBar" unique_id=34735650]
+layout_mode = 0
+offset_left = 370.0
+offset_top = 4.0
+offset_right = 440.0
+offset_bottom = 74.0

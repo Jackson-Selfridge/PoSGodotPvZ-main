@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://d2vjvwq063hop" path="res://Main Game/checkerboard.gd" id="3_v3n8n"]
 [ext_resource type="PackedScene" uid="uid://bqy053pe8sgrn" path="res://zombies/zombie.tscn" id="4_w1erm"]
 [ext_resource type="Script" uid="uid://bda1untpe0br0" path="res://Main Game/house_trigger.gd" id="5_v3n8n"]
+[ext_resource type="Script" uid="uid://dkoosxfhn3ek1" path="res://Main Game/wave_manager.gd" id="6_kmnlm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eb883"]
 texture = ExtResource("1_n1f5j")
@@ -53,5 +54,12 @@ script = ExtResource("5_v3n8n")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HouseTrigger" unique_id=873072363]
 position = Vector2(-32, 320)
 shape = SubResource("RectangleShape2D_uj04i")
+
+[node name="WaveManager" type="Node" parent="." unique_id=272574409]
+script = ExtResource("6_kmnlm")
+
+[node name="SpawnTimer" type="Timer" parent="WaveManager" unique_id=1858743052]
+wait_time = 3.0
+one_shot = true
 
 [connection signal="body_entered" from="HouseTrigger" to="HouseTrigger" method="_on_body_entered"]

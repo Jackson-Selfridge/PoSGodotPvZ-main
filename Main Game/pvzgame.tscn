@@ -3,6 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://c01670571vg1n" path="res://Art and Stuff/Lgrass.webp" id="1_n1f5j"]
 [ext_resource type="Texture2D" uid="uid://dhreq80hgh250" path="res://Art and Stuff/Dgrass.jpeg" id="2_n1f5j"]
 [ext_resource type="Script" uid="uid://d2vjvwq063hop" path="res://Main Game/checkerboard.gd" id="3_v3n8n"]
+[ext_resource type="PackedScene" uid="uid://bqy053pe8sgrn" path="res://zombies/zombie.tscn" id="4_w1erm"]
+[ext_resource type="Script" uid="uid://bda1untpe0br0" path="res://Main Game/house_trigger.gd" id="5_v3n8n"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eb883"]
 texture = ExtResource("1_n1f5j")
@@ -26,6 +28,9 @@ terrain_set_0/mode = 0
 sources/1 = SubResource("TileSetAtlasSource_eb883")
 sources/2 = SubResource("TileSetAtlasSource_l52a5")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uj04i"]
+size = Vector2(64, 640)
+
 [node name="Node2D" type="Node2D" unique_id=178753730]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1818240329]
@@ -36,3 +41,17 @@ script = ExtResource("3_v3n8n")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=174855986]
 position = Vector2(566, 209)
 zoom = Vector2(0.75, 0.75)
+
+[node name="Zombie" parent="." unique_id=761601910 instance=ExtResource("4_w1erm")]
+position = Vector2(1000, 64)
+
+[node name="HouseTrigger" type="Area2D" parent="." unique_id=1436881547]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("5_v3n8n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HouseTrigger" unique_id=873072363]
+position = Vector2(-32, 320)
+shape = SubResource("RectangleShape2D_uj04i")
+
+[connection signal="body_entered" from="HouseTrigger" to="HouseTrigger" method="_on_body_entered"]

@@ -1,11 +1,21 @@
 extends Node
 
+var zombie_scene = preload("res://zombies/zombie.tscn")
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+var spawn_x: float = 1000.0
+var lane_positions = [64.0, 192.0, 320.0, 448.0, 576.0]
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _on_spawn_timer_timeout():
+	print("SPAWN TIMER WORKS")
+	spawn_zombie()
+
+
+func spawn_zombie():
+	var zombie = zombie_scene.instantiate()
+
+	var random_lane = randi_range(0, lane_positions.size() - 1)
+
+	zombie.position = Vector2(spawn_x, lane_positions[random_lane])
+
+	get_parent().add_child(zombie)

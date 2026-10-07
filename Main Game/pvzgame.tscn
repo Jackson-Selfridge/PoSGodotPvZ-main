@@ -3,7 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://c01670571vg1n" path="res://Art and Stuff/Lgrass.webp" id="1_n1f5j"]
 [ext_resource type="Texture2D" uid="uid://dhreq80hgh250" path="res://Art and Stuff/Dgrass.jpeg" id="2_n1f5j"]
 [ext_resource type="Script" uid="uid://d2vjvwq063hop" path="res://Main Game/checkerboard.gd" id="3_v3n8n"]
-[ext_resource type="PackedScene" uid="uid://bqy053pe8sgrn" path="res://zombies/zombie.tscn" id="4_w1erm"]
 [ext_resource type="Script" uid="uid://bda1untpe0br0" path="res://Main Game/house_trigger.gd" id="5_v3n8n"]
 [ext_resource type="Script" uid="uid://dkoosxfhn3ek1" path="res://Main Game/wave_manager.gd" id="6_kmnlm"]
 
@@ -43,9 +42,6 @@ script = ExtResource("3_v3n8n")
 position = Vector2(566, 209)
 zoom = Vector2(0.75, 0.75)
 
-[node name="Zombie" parent="." unique_id=761601910 instance=ExtResource("4_w1erm")]
-position = Vector2(1000, 64)
-
 [node name="HouseTrigger" type="Area2D" parent="." unique_id=1436881547]
 collision_layer = 8
 collision_mask = 2
@@ -61,5 +57,7 @@ script = ExtResource("6_kmnlm")
 [node name="SpawnTimer" type="Timer" parent="WaveManager" unique_id=1858743052]
 wait_time = 3.0
 one_shot = true
+autostart = true
 
 [connection signal="body_entered" from="HouseTrigger" to="HouseTrigger" method="_on_body_entered"]
+[connection signal="timeout" from="WaveManager/SpawnTimer" to="WaveManager" method="_on_spawn_timer_timeout"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://h0vso0vmito6"
-path="res://.godot/imported/icon.svg-33246fea65e8906949cf8c775f8890fb.ctex"
+uid="uid://bgvc45lfygtih"
+path="res://.godot/imported/basiczombie.png-b55942adc8fc6d7e270acc60df782e92.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art and Stuff/icon.svg"
-dest_files=["res://.godot/imported/icon.svg-33246fea65e8906949cf8c775f8890fb.ctex"]
+source_file="res://Art and Stuff/basiczombie.png"
+dest_files=["res://.godot/imported/basiczombie.png-b55942adc8fc6d7e270acc60df782e92.ctex"]
 
 [params]
 
@@ -38,6 +38,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false
